@@ -173,6 +173,7 @@ describe('Git Service', function () {
       let user = await gitService.getUser('Saif-Shines');
       var params = this.request.getCall(0).args;
       params[0].headers['User-Agent'].should.equal('gitExample');
+      this.request.getCall(1).args[0].path.should.equal('/users/Saif-Shines/repos');
       user.login.should.equal('Saif-Shines');
       user.should.have.property('repos');
     });
